@@ -1,0 +1,42 @@
+<table class="w-full text-sm text-left rtl:text-right">
+  <thead class="text-xs border-b text-gray-700 uppercase">
+  <tr>
+    <th scope="col" class="px-6 py-3">
+      Taux réel
+    </th>
+    <th scope="col" class="px-6 py-3">
+      Taux saisi
+    </th>
+    <th scope="col" class="px-6 py-3">
+      valeur initiale
+    </th>
+    <th scope="col" class="px-6 py-3">
+      valeur calculée
+    </th>
+    <th scope="col" class="px-6 py-3">
+      opération
+    </th>
+  </tr>
+  </thead>
+  <tbody class="text-xs text-gray-500 text-center">
+    @for (row of table(); track $index){
+      <tr>
+        <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+          {{row.realRate | number}}
+        </th>
+        <td class="px-6 py-4">
+          {{row.customRate==undefined ? '-' : row.customRate | number}}
+        </td>
+        <td class="px-6 py-4">
+          {{row.initValue | number}}
+        </td>
+        <td class="px-6 py-4">
+          {{row.calculatedValue | number}}
+        </td>
+        <td class="px-6 py-4">
+          {{row.operation}}
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
